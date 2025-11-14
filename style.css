@@ -1,86 +1,94 @@
 body {
-    background-color: transparent; /* Mantém o fundo transparente para o Wix */
+    background-color: transparent;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    overflow: hidden; /* Evita barras de rolagem desnecessárias */
+    overflow: hidden;
 }
 
 .music-player {
     display: flex;
-    align-items: center; /* Alinha os itens verticalmente */
-    padding: 20px;
-    background-color: #f8f8f8; /* Fundo branco/cinza claro conforme a imagem */
+    flex-direction: column;
+    /* Reduzindo o padding para um player menor */
+    padding: 15px; 
+    background-color: #f8f8f8;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
-    width: 380px; /* Largura fixa para replicar a imagem */
-    gap: 20px; /* Espaçamento entre as colunas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra um pouco mais sutil */
+    /* Reduzindo a largura geral do player */
+    width: 280px; /* De 380px para 280px */
+    /* Reduzindo o espaçamento entre as linhas */
+    gap: 12px; /* De 20px para 12px */
 }
 
-/* Coluna de botões/ícones */
-.controls-column {
+.player-row {
     display: flex;
-    flex-direction: column; /* Itens um abaixo do outro */
     align-items: center;
-    gap: 25px; /* Espaçamento entre play/pause e ícone de volume */
+    width: 100%;
+    /* Reduzindo o espaçamento entre o botão/ícone e o slider */
+    gap: 10px; /* De 15px para 10px */
 }
 
+/* Botão de Play/Pause */
 .control-btn {
-    background: #007bff; /* Azul vibrante */
+    background: #007bff;
     border: none;
     color: white;
-    font-size: 24px; /* Ícone Play maior */
-    width: 50px;
-    height: 50px;
-    border-radius: 50%; /* Botão Play/Pause redondo */
+    /* Reduzindo o tamanho da fonte do ícone */
+    font-size: 18px; /* De 24px para 18px */
+    /* Reduzindo o tamanho do botão */
+    width: 40px; /* De 50px para 40px */
+    height: 40px; /* De 50px para 40px */
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
     transition: background-color 0.2s;
 }
 
 .control-btn:hover {
-    background: #0056b3; /* Azul mais escuro ao passar o mouse */
+    background: #0056b3;
 }
 
-.volume-icon-wrapper {
-    color: #007bff; /* Cor azul para o ícone de volume */
-    font-size: 24px; /* Tamanho do ícone de volume */
-    width: 50px; /* Para alinhamento */
-    text-align: center;
-}
-
-/* Coluna dos sliders */
-.sliders-column {
+/* Caixa do Ícone de Volume */
+.icon-wrapper {
+    color: #007bff;
+    /* Reduzindo o tamanho da fonte do ícone */
+    font-size: 18px; /* De 24px para 18px */
+    /* Reduzindo o tamanho da caixa para coincidir com o botão */
+    width: 40px; /* De 50px para 40px */
+    height: 40px; /* De 50px para 40px */
     display: flex;
-    flex-direction: column; /* Sliders um abaixo do outro */
-    flex-grow: 1; /* Ocupa o espaço restante */
-    gap: 30px; /* Espaçamento entre os dois sliders */
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
 }
 
-/* Estilo para ambos os sliders (progress e volume) */
+/* Containers dos Sliders */
 .progress-container,
 .volume-container {
     display: flex;
     align-items: center;
     width: 100%;
+    flex-grow: 1;
 }
 
+/* Estilo dos Sliders */
 .progress-slider,
 .volume-slider {
     -webkit-appearance: none;
     appearance: none;
-    width: 100%; /* Ocupa toda a largura disponível */
-    height: 8px; /* Espessura das barras */
-    background: #e0e0e0; /* Cinza claro da barra "vazia" */
+    width: 100%;
+    /* Reduzindo a espessura das barras */
+    height: 6px; /* De 8px para 6px */
+    background: #e0e0e0;
     border-radius: 5px;
     outline: none;
     cursor: pointer;
-    transition: background 0.2s; /* Transição para a cor do progresso */
 }
 
 /* Estilo do "pino" (thumb) dos sliders */
@@ -88,20 +96,21 @@ body {
 .volume-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 18px; /* Tamanho do pino */
-    height: 18px;
-    background: #007bff; /* Azul vibrante do pino */
+    /* Reduzindo o tamanho do pino */
+    width: 14px; /* De 18px para 14px */
+    height: 14px; /* De 18px para 14px */
+    background: #007bff;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para o pino */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra mais suave */
 }
 
 .progress-slider::-moz-range-thumb,
 .volume-slider::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
+    width: 14px;
+    height: 14px;
     background: #007bff;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
